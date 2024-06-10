@@ -27,7 +27,7 @@ export const signIn = async (username: string, password: string) => {
       return AuthenticationResult;
     }
   } catch (error) {
-    console.error("Error signing in: ", error);
+    console.error("Error logging in: ", error);
     throw error;
   }
 };
@@ -47,7 +47,7 @@ export const signUp = async (email: string, password: string) => {
   try {
     const command = new SignUpCommand(params);
     const response = await cognitoClient.send(command);
-    console.log("Sign up success: ", response);
+    console.log("Register success: ", response);
     return response;
   } catch (error) {
     console.error("Error signing up: ", error);
@@ -67,7 +67,7 @@ export const confirmSignUp = async (username: string, code: string) => {
     console.log("User confirmed successfully");
     return true;
   } catch (error) {
-    console.error("Error confirming sign up: ", error);
+    console.error("Error confirming register: ", error);
     throw error;
   }
 };

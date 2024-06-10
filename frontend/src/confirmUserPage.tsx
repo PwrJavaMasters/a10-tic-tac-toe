@@ -16,7 +16,7 @@ const ConfirmUserPage = () => {
     e.preventDefault();
     try {
       await confirmSignUp(email, confirmationCode);
-      alert("Account confirmed successfully!\nSign in on next page.");
+      alert("Account confirmed successfully!\nLogin on next page.");
       navigate('/login');
     } catch (error) {
       alert(`Failed to confirm account: ${error}`);

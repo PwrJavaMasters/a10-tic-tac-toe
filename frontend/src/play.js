@@ -1,3 +1,4 @@
+// play.js
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Client } from '@stomp/stompjs';
@@ -174,23 +175,16 @@ function PlayPage() {
     };
 
     return (
-        <div style={{ background: '#121212', color: '#ccc', fontFamily: 'Arial, sans-serif' }}>
-            <h1 style={{ color: '#0f0' }}>Tic Tac Toe</h1>
-            <div id="box" style={{
-                background: '#ccc',
-                padding: '20px',
-                borderRadius: '10px',
-                maxWidth: '500px',
-                margin: '40px auto',
-                overflow: 'auto'
-            }}>
+        <div>
+            <h1>Tic Tac Toe</h1>
+            <div id="box">
                 <input
                     type="text"
                     id="login"
                     placeholder="Enter your login"
                     value={login}
                     onChange={handleLoginChange}
-                    style={{ width: '95%', marginBottom: '20px', padding: '10px', textAlign: 'center' }}
+                    className="inputText"
                 />
                 <input
                     type="text"
@@ -198,79 +192,27 @@ function PlayPage() {
                     placeholder="Enter game ID"
                     value={gameId}
                     onChange={handleGameIdChange}
-                    style={{ width: '95%', marginBottom: '20px', padding: '10px', textAlign: 'center' }}
+                    className="inputText"
                 />
-                <button onClick={createGame} style={{
-                    width: '100%',
-                    marginBottom: '10px',
-                    padding: '10px',
-                    borderRadius: '5px',
-                    border: 'none',
-                    background: '#444',
-                    color: '#fff'
-                }}>Create Game
-                </button>
-                <button onClick={connectToRandom} style={{
-                    width: '100%',
-                    marginBottom: '10px',
-                    padding: '10px',
-                    borderRadius: '5px',
-                    border: 'none',
-                    background: '#444',
-                    color: '#fff'
-                }}>Connect to Random Game
-                </button>
-                <div>
-                    <button onClick={handleLogout}>Logout</button>
-                </div>
-                <ul id="gameBoard" style={{ listStyle: 'none', padding: 0 }}>
+                <button onClick={createGame} className="button">Create Game</button>
+                <button onClick={connectToRandom} className="button">Connect to Random Game</button>
+                <button onClick={handleLogout} className="button">Logout</button>
+                <ul id="gameBoard">
                     {turns.map((row, i) =>
                         row.map((cell, j) => (
-                            <button
+                            <li
                                 key={`${i}-${j}`}
                                 onClick={() => makeAMove(i, j)}
-                                disabled={cell !== '#'}
-                                style={{
-                                    float: 'left',
-                                    margin: '15px',
-                                    height: '100px',
-                                    width: '100px',
-                                    fontSize: '50px',
-                                    background: '#333',
-                                    color: '#ccc',
-                                    textAlign: 'center',
-                                    borderRadius: '5px'
-                                }}
                                 className={cell === 'X' ? 'x' : cell === 'O' ? 'o' : ''}
                             >
                                 {cell !== '#' ? cell : ''}
-                            </button>
+                            </li>
                         ))
                     )}
                 </ul>
-                <div className="clearfix" style={{ clear: 'both' }}></div>
-                <button id="reset" onClick={hardReset} disabled={gameOn === true} style={{
-                    width: '70%',
-                    padding: '15px',
-                    borderRadius: '5px',
-                    border: 'none',
-                    background: '#444',
-                    color: '#fff',
-                    display: 'block',
-                    margin: '20px auto'
-                }}>Reset
-                </button>
+                <button id="reset" onClick={hardReset} disabled={gameOn}>Reset</button>
+                <div className="clearfix"></div>
             </div>
-            <footer style={{ textAlign: 'center', paddingTop: '20px' }}>
-                <div>
-                    {player1 != null && player2 != null && (
-                        <div>
-                            <div>{player1} score: {player1Score}</div>
-                            <div>{player2} score: {player2Score}</div>
-                        </div>
-                    )}
-                </div>
-            </footer>
         </div>
     );
 }

@@ -1,12 +1,19 @@
+/* App.css */
 body {
-  background: #121212;
-  color: #ccc;
+  background: #1a1a1a;
+  color: #e0e0e0;
   font-family: 'Arial, sans-serif';
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 h1 {
   text-align: center;
-  color: #0f0;
+  color: #76ff03;
   margin-bottom: 20px;
 }
 
@@ -15,13 +22,14 @@ h1 {
 }
 
 #box {
-  width: 600px;
-  overflow: auto;
+  width: 90%;
+  max-width: 600px;
   margin: 40px auto;
-  background: #1e1e1e;
+  background: #212121;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
 #message {
@@ -35,89 +43,74 @@ h1 {
 #gameBoard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 10px;
   padding: 0;
   list-style: none;
+  margin: 20px 0;
 }
 
 #gameBoard li {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 150px;
-  width: 150px;
-  font-size: 60px;
+  height: 100px;
+  font-size: 40px;
   background: #333;
-  color: #ccc;
+  color: #e0e0e0;
   border-radius: 10px;
   transition: background 0.3s ease;
 }
 
-#gameBoard li:hover, #reset:hover {
+#gameBoard li:hover {
   cursor: pointer;
-  background: #0f0;
+  background: #76ff03;
 }
 
-#reset {
+#reset, .button {
   border: 0;
   background: #444;
   color: #fff;
-  width: 80%;
+  width: 100%;
   padding: 15px;
   border-radius: 10px;
-  margin: 20px auto 0;
-  display: block;
+  margin-top: 20px;
   transition: background 0.3s ease;
 }
 
-.o {
-  color: #0f0 !important;
-}
-
-.x {
-  color: #f00 !important;
-}
-
-footer {
-  display: block;
-  text-align: center;
-  padding-top: 20px;
-}
-
-.loginForm {
-  justify-content: center;
-  display: grid;
-  gap: 10px;
-  max-width: 400px;
-  margin: 40px auto;
+#reset:hover, .button:hover {
+  cursor: pointer;
+  background: #76ff03;
 }
 
 .inputText {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   border: 1px solid #444;
   border-radius: 5px;
   background: #1e1e1e;
-  color: #ccc;
-  margin-bottom: 10px;
-}
-
-button {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  background: #444;
-  color: #fff;
-  transition: background 0.3s ease;
-}
-
-button:hover {
-  background: #0f0;
-  color: #121212;
-}
-
-h4 {
-  text-align: center;
-  color: #0f0;
+  color: #e0e0e0;
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.o {
+  color: #76ff03 !important;
+}
+
+.x {
+  color: #ff5252 !important;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 400px;
+  margin: 40px auto;
 }
